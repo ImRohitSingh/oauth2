@@ -15,7 +15,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 
 		http.csrf().disable().requestMatchers().antMatchers("/private/**").and().authorizeRequests()
 				.antMatchers("/private/**").hasRole("USER");
-		http.requestMatchers().antMatchers("/admin**").and().authorizeRequests().antMatchers("/admin**")
+		http.csrf().disable().requestMatchers().antMatchers("/admin**").and().authorizeRequests().antMatchers("/admin**")
 				.hasRole("ADMIN");
 
 	}
