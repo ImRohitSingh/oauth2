@@ -17,7 +17,7 @@ import org.springframework.security.oauth2.provider.token.store.InMemoryTokenSto
 
 @Configuration
 @EnableAuthorizationServer
-public class AuthorizacionServerConfiguration extends AuthorizationServerConfigurerAdapter {
+public class AuthorizationServerConfiguration extends AuthorizationServerConfigurerAdapter {
 
 	@Autowired
 	@Qualifier("authenticationManagerBean")
@@ -34,8 +34,8 @@ public class AuthorizacionServerConfiguration extends AuthorizationServerConfigu
 		clients.inMemory().withClient("client")
 				.authorizedGrantTypes("password", "authorization_code", "refresh_token", "implicit")
 				.authorities("ROLE_CLIENT", "ROLE_TRUSTED_CLIENT", "USER", "ADMIN").scopes("read", "write").autoApprove(true)
-				.secret(passwordEncoder().encode("password")).accessTokenValiditySeconds(1200)
-				.refreshTokenValiditySeconds(1800);
+				.secret(passwordEncoder().encode("password")).accessTokenValiditySeconds(60)
+				.refreshTokenValiditySeconds(60);
 	}
 
 	@Bean
