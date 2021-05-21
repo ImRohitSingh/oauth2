@@ -16,7 +16,7 @@ user | for the role of **USER**
 admin | for the role of **ADMIN**
 client | to authorize the endpoints which will actually provide the **OAUTH** tokens
 
-The endpoints have been cateforized into *three* different **levels of security**:
+The endpoints have been categorized into *three* different **levels of security**:
 
 Level | Purpose
 ----------  | -----------
