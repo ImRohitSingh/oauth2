@@ -1,6 +1,6 @@
 # oauth2
 
-Securing rest endpoints using OAUTH2 tokens. The application also sends actuator metrics to [Graphite](https://github.com/ImRohitSingh/oauth2/blob/main/HELP.md#graphite) which can me monitored using [Grafana](https://grafana.com/).
+Securing rest endpoints using OAUTH2 tokens. The application also sends actuator metrics to [Graphite db](https://github.com/ImRohitSingh/oauth2/blob/main/HELP.md#graphite) which can be monitored using [Grafana](https://grafana.com/).
 
 ## Authorization Details
 
