@@ -23,4 +23,19 @@ The following guides illustrate how to use some features concretely:
 These additional references should also help you:
 
 * [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
+* [Official Graphite Site](https://graphiteapp.org/)
+* [Official Grafana Site](https://grafana.com/)
+* [Micrometer - Graphite Configuration](https://micrometer.io/docs/registry/graphite)
+
+### Graphite
+
+* Pull
+```sh
+docker pull graphiteapp/graphite-statsd
+```
+* Run
+```sh
+docker run -d --name graphite-server -p 80:80 -p 2003-2004:2003-2004 -p 2023-2024:2023-2024 -p 8125:8125/udp -p 8126:8126 graphiteapp/graphite-statsd
+```
+> Runs on ```port 80```
 
