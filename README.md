@@ -21,7 +21,7 @@ The endpoints have been categorized into *three* different **levels of security*
 Level | Purpose
 ----------  | -----------
 public | can be accessed by any user either with credentials of the role of **ADMIN** or that of the role of  **USER**
-private | can be accessed with **OAUTH tokens** generated for role **USER**
+private | can be accessed with **OAUTH tokens** generated for roles **USER** / **ADMIN**
 admin | can be accessed with **OAUTH tokens** generated for role **ADMIN**
 
 Implements three **authorization** configuration classes:
