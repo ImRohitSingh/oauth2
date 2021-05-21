@@ -32,7 +32,7 @@ OAuth Configuration (AuthorizationServer) | binds the **client credential** to a
 Web Configuration (WebServer) | creates the two secured users and their associated roles
 Resource Configuration (ResourceServer) | defines the permit level of all the endpoints
 
-## Generatin Oauth tokens
+## Generating Oauth tokens
 
 1. **access_token**
 ```sh
@@ -78,8 +78,8 @@ response:
 ### Notes
 
 In an ideal scenario:
-> * **refresh_token** will have a longer validity, after which a new token can be generated using the first endpoint.
-> * **access_token** will have a much lesser validity, after which the second endpoint can be used to generate a new token.
+> * **refresh_token** will have a longer validity, after which a new token can be generated using the first endpoint
+> * **access_token** will have a much lesser validity, after which the second endpoint can be used to generate a new token
 
 ## Endpoint Details
 endpoints | security type
@@ -95,7 +95,7 @@ endpoints | security type
 endpoint: /<endpoint>
 method: <method type>
 request:
-  Basic Authorization: ```user``` OR ```admin``` credentials
+  Basic Authorization: "user" OR "admin" credentials
   ...
 ```
 
@@ -104,7 +104,7 @@ request:
 endpoint: /<endpoint>
 method: <method type>
 request:
-  Bearer Token: ```oauth token``` generated for roles "USER" / "ADMIN"
+  Bearer Token: "oauth token" generated for roles "USER" / "ADMIN"
   ...
 ```
 
@@ -113,7 +113,7 @@ request:
 endpoint: /<endpoint>
 method: <method type>
 request:
-  Bearer Token: ```oauth token``` generated for role "ADMIN"
+  Bearer Token: "oauth token" generated for role "ADMIN"
   ...
 ```
 
