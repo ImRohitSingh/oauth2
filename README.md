@@ -108,7 +108,7 @@ request:
   ...
 ```
 
-2. Admin endpoints
+3. Admin endpoints
 ```sh
 endpoint: /<endpoint>
 method: <method type>
