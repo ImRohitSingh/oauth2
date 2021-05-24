@@ -1,6 +1,6 @@
 #!/bin/bash
 
-wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
+wget https://cli-assets.heroku.com/heroku-cli/channels/stable/heroku-cli-linux-x64.tar.gz -O heroku.tar.gz
 
 cat > ~/.netrc << EOF
 machine api.heroku.com
