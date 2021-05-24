@@ -77,8 +77,9 @@ jobs:
           command: |
             cp /tmp/oauth2.jar .
             ls -la
+            heroku update
             heroku plugins:install heroku-cli-deploy
-            heroku plugins:install heroku-cli-deploy  # when debugging on circle image, first run succeeded, but did not make plugin available
+            heroku plugins:install heroku-cli-deploy
             heroku deploy:jar oauth2.jar --app $HEROKU_APP_NAME      
 
 
