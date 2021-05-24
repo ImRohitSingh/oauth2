@@ -60,9 +60,13 @@ jobs:
                   - setup-heroku.sh
   
   deploy-heroku:
+    machine:
+      enabled: true
     docker:
       - image: circleci/openjdk:8-jdk-browsers
     working_directory: ~/deploy
+    environment:
+      HEROKU_APP: "springoauth2template"
     steps:
       # why rebuild something we already tested, rebuilding invalidates any previous confidence?!
       - attach_workspace:
