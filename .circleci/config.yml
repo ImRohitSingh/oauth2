@@ -48,7 +48,7 @@ jobs:
       
       # build artifact
       - store_artifacts:
-          path: .circleci/setup-heroku.sh
+          path: .circleci
           destination: oauth2
   
   deploy-heroku:
@@ -58,7 +58,7 @@ jobs:
     steps:
       # why rebuild something we already tested, rebuilding invalidates any previous confidence?!
       - attach_workspace:
-          at: /tmp
+          at: /oauth2
 
       - run:
           name: Run setup script
@@ -67,7 +67,7 @@ jobs:
       - run:
           name: Heroku Deploy
           command: |
-            cp /tmp/oauth2.jar .
+            cp /oauth2/oauth2.jar .
             ls -la
             heroku plugins:install heroku-cli-deploy
             heroku plugins:install heroku-cli-deploy  # when debugging on circle image, first run succeeded, but did not make plugin available
