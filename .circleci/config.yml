@@ -45,3 +45,8 @@ jobs:
       - store_artifacts:
           path: build/libs
           destination: oauth2
+
+      - run:
+          name: Copy deployment artifacts to working directory
+          command: |
+            cp /oauth2/setup-heroku.sh
