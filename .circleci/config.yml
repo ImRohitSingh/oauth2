@@ -49,4 +49,38 @@ jobs:
       - run:
           name: Copy deployment artifacts to working directory
           command: |
+            cp build/libs/oauth2-*.jar /tmp/oauth2.jar
             cp .circleci/setup-heroku.sh /tmp/setup-heroku.sh
+  
+  deploy-heroku:
+    docker:
+      - image: circleci/openjdk:8-jdk-browsers
+    working_directory: ~/deploy
+    steps:
+      # why rebuild something we already tested, rebuilding invalidates any previous confidence?!
+      - attach_workspace:
+          at: /tmp
+
+      - run:
+          name: Run setup script
+          command: bash /tmp/setup-heroku.sh
+
+      - run:
+          name: Heroku Deploy
+          command: |
+            cp /tmp/oauth2.jar .
+            ls -la
+            heroku plugins:install heroku-cli-deploy
+            heroku plugins:install heroku-cli-deploy  # when debugging on circle image, first run succeeded, but did not make plugin available
+            heroku deploy:jar oauth2.jar --app $HEROKU_APP_NAME      
+
+
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+      - deploy-heroku:
+          requires:
+            - build
