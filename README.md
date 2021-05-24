@@ -1,20 +1,30 @@
 # oauth2
 
-Securing rest endpoints using OAUTH2 tokens. The application also sends [actuator metrics](https://www.javatpoint.com/spring-boot-actuator#:~:text=Spring%20Boot%20Actuator%20is%20a,place%20where%20the%20resources%20live) to [Graphite db](https://github.com/ImRohitSingh/oauth2/blob/main/HELP.md#graphite) which can be monitored using [Grafana](https://grafana.com/).
+Securing rest endpoints using OAUTH2 tokens. The application also sends [actuator metrics](https://www.javatpoint.com/spring-boot-actuator#:~:text=Spring%20Boot%20Actuator%20is%20a,place%20where%20the%20resources%20live) to [Graphite db](https://graphiteapp.org/) which can be monitored using [Grafana](https://grafana.com/).
+
+[![build](https://circleci.com/gh/ImRohitSingh/oauth2.svg?style=svg)](https://circleci.com/gh/ImRohitSingh/oauth2)
+
+## Quick Access
+
+* [Setting up Graphite db](https://github.com/ImRohitSingh/oauth2/blob/main/HELP.md#graphite)
+* [Authorization Implementation Details](https://github.com/ImRohitSingh/oauth2#implementation)
+* [Generating Oauth tokens](https://github.com/ImRohitSingh/oauth2/blob/main/HELP.md#generating-oauth-tokens)
 
 ## Authorization Details
 
-There are two roles:
+### Roles
   1. **USER**
   2. **ADMIN**
 
-And *three* type of **secured credentials**:
+### Secured Credentials
 
 Type | Purpose
 ----------  | -----------
 user | for the role of **USER**
 admin | for the role of **ADMIN**
 client | to authorize the endpoints which will actually provide the **OAUTH** tokens
+
+### Levels of Security
 
 The endpoints have been categorized into *three* different **levels of security**:
 
@@ -24,7 +34,7 @@ public | can be accessed by any user either with credentials of the role of **AD
 private | can be accessed with **OAUTH tokens** generated for roles **USER** / **ADMIN**
 admin | can be accessed with **OAUTH tokens** generated for role **ADMIN**
 
-Implements three **authorization** configuration classes:
+### Implementation
 
 Config Type | Purpose
 ----------  | -----------
