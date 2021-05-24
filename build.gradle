@@ -35,6 +35,8 @@ dependencies {
 	testImplementation 'org.springframework.security:spring-security-test'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'io.micrometer:micrometer-registry-graphite'
+	implementation 'org.slf4j:slf4j-api'
+	
 }
 
 dependencyManagement {
