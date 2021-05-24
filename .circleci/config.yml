@@ -77,7 +77,8 @@ jobs:
           command: |
             cp /tmp/oauth2.jar .
             ls -la
-            heroku update
+            heroku git:remote -a $HEROKU_APP_NAME
+            heroku update -g
             heroku plugins:install heroku-cli-deploy
             heroku plugins:install heroku-cli-deploy
             heroku deploy:jar oauth2.jar --app $HEROKU_APP_NAME      
