@@ -45,12 +45,11 @@ jobs:
       - store_artifacts:
           path: build/libs
           destination: oauth2
-
-      - run:
-          name: Copy deployment artifacts to working directory
-          command: |
-            cp build/libs/oauth2-*.jar /oauth2/oauth2.jar
-            cp .circleci/setup-heroku.sh /oauth2/setup-heroku.sh
+      
+      # build artifact
+      - store_artifacts:
+          path: .circleci/setup-heroku.sh
+          destination: oauth2
   
   deploy-heroku:
     docker:
