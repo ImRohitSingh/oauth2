@@ -2,7 +2,7 @@
 
 Securing rest endpoints using OAUTH2 tokens. The application also sends [actuator metrics](https://www.javatpoint.com/spring-boot-actuator#:~:text=Spring%20Boot%20Actuator%20is%20a,place%20where%20the%20resources%20live) to [Graphite db](https://graphiteapp.org/) which can be monitored using [Grafana](https://grafana.com/).
 
-[![build](https://circleci.com/gh/ImRohitSingh/oauth2.svg?style=svg)](https://circleci.com/gh/ImRohitSingh/oauth2)
+[![build pipeline](https://circleci.com/gh/ImRohitSingh/oauth2.svg?style=svg)](https://circleci.com/gh/ImRohitSingh/oauth2)
 
 ## Quick Access
 
