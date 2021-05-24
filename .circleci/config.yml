@@ -49,4 +49,4 @@ jobs:
       - run:
           name: Copy deployment artifacts to working directory
           command: |
-            cp .circleci/setup-heroku.sh /oauth2/setup-heroku.sh
+            cp .circleci/setup-heroku.sh /tmp/setup-heroku.sh
