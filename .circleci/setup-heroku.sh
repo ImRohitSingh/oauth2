@@ -1,6 +1,7 @@
 #!/bin/bash
 
-wget -qO- https://cli-assets.heroku.com/install.sh | sh
+curl https://cli-assets.heroku.com/apt/release.key | sudo apt-key add -
+wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
 
 cat > ~/.netrc << EOF
 machine api.heroku.com
