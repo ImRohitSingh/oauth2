@@ -95,3 +95,6 @@ workflows:
       - deploy-heroku:
           requires:
             - build
+          branches:
+            only:
+              - master
