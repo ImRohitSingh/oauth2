@@ -38,18 +38,26 @@ jobs:
             - ~/.gradle
           key: v1-dependencies-{{ checksum "build.gradle" }}
 
-      # run tests!
+      # run tests
       - run: gradle clean build
 
-      # build artifact
+      # copy deployment artifacts
+      - run:
+          name: Copy deployment artifacts to workspace
+          command: |
+            cp build/libs/oauth2-*.jar /tmp/oauth2.jar
+            cp .circleci/setup-heroku.sh /tmp/setup-heroku.sh
+
+      # build artifacts
       - store_artifacts:
-          path: build/libs
-          destination: oauth2
-      
-      # build artifact
-      - store_artifacts:
-          path: .circleci
-          destination: oauth2
+          path: /tmp/oauth2.jar
+
+      # store in workspace
+      - persist_to_workspace:
+                root: /tmp
+                paths:
+                  - oauth2.jar
+                  - setup-heroku.sh
   
   deploy-heroku:
     docker:
@@ -58,7 +66,7 @@ jobs:
     steps:
       # why rebuild something we already tested, rebuilding invalidates any previous confidence?!
       - attach_workspace:
-          at: /oauth2
+          at: /tmp
 
       - run:
           name: Run setup script
@@ -67,7 +75,7 @@ jobs:
       - run:
           name: Heroku Deploy
           command: |
-            cp /oauth2/oauth2.jar .
+            cp /tmp/oauth2.jar .
             ls -la
             heroku plugins:install heroku-cli-deploy
             heroku plugins:install heroku-cli-deploy  # when debugging on circle image, first run succeeded, but did not make plugin available
