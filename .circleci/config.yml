@@ -67,6 +67,8 @@ jobs:
       HEROKU_APP: "springoauth2template"
     steps:
       # why rebuild something we already tested, rebuilding invalidates any previous confidence?!
+      - checkout
+
       - attach_workspace:
           at: /tmp
 
@@ -79,6 +81,7 @@ jobs:
           command: |
             cp /tmp/oauth2.jar .
             ls -la
+            git init
             heroku update -g
             heroku plugins:install heroku-cli-deploy
             heroku plugins:install heroku-cli-deploy
