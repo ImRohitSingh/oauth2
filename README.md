@@ -9,7 +9,7 @@ Securing rest endpoints using OAUTH2 tokens. The application also sends [actuato
 * [Setting up Graphite db](https://github.com/ImRohitSingh/oauth2/blob/main/HELP.md#graphite)
 * [Authorization Implementation Details](https://github.com/ImRohitSingh/oauth2#implementation)
 * [Generating Oauth tokens](https://github.com/ImRohitSingh/oauth2#generating-oauth-tokens)
-* [Validation Links](https://github.com/ImRohitSingh/oauth2#generating-oauth-tokens#validation)
+* [Validation Links](https://github.com/ImRohitSingh/oauth2#validation)
 
 ## Authorization Details
 
