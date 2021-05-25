@@ -83,7 +83,7 @@ jobs:
             heroku plugins:install heroku-cli-deploy
             heroku deploy:jar oauth2.jar --app $HEROKU_APP_NAME
         
-        - run:
+      - run:
           name: Smoke Test
           command: |
             # Heroku deploy command will pass even if application crashes. Simple smoke test to make sure app is up.
