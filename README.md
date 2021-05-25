@@ -97,6 +97,7 @@ endpoints | security type
 "/public" | public
 "/private/**" | private
 "/admin/**" | admin
+"/deployment" | no authorization needed
 
 ## Authorization Parameters in Request Details
 

@@ -33,5 +33,10 @@ public class Oauth2Controller {
 	public String adminPage(@RequestBody(required = true) String param) {
 		return "Administrator Page" + param;
 	}
+	
+	@GetMapping(path = "/deployment")
+	public String testDeployment() {
+		return "Successfully Deployed";
+	}
 
 }

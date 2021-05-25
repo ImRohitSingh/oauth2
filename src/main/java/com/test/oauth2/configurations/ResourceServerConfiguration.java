@@ -16,8 +16,12 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 		http.csrf().disable().authorizeRequests().antMatchers("/oauth/token", "/oauth/authorize**", "/public")
 				.permitAll();
 
+		http.requestMatchers().mvcMatchers("/deployment").and().authorizeRequests()
+				.mvcMatchers("/deployment").permitAll();
+
 		http.csrf().disable().requestMatchers().antMatchers("/private/**").and().authorizeRequests()
 				.antMatchers("/private/**").hasRole(Roles.USER.getRole());
+
 		http.csrf().disable().requestMatchers().antMatchers("/admin**").and().authorizeRequests()
 				.antMatchers("/admin**").hasRole(Roles.ADMIN.getRole());
 
