@@ -63,7 +63,7 @@ jobs:
       - image: circleci/openjdk:8-jdk-browsers
     working_directory: ~/deploy
     environment:
-      HEROKU_APP: "springoauth2template"
+      HEROKU_APP: $HEROKU_APP_NAME
     steps:
       # why rebuild something we already tested, rebuilding invalidates any previous confidence?!
       - checkout
