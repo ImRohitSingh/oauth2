@@ -65,7 +65,8 @@ jobs:
     environment:
       HEROKU_APP: "springoauth2template"
     steps:
-      # why rebuild something we already tested, rebuilding invalidates any previous confidence?
+      - checkout
+
       - attach_workspace:
           at: /tmp
 
