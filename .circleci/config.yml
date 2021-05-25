@@ -44,18 +44,18 @@ jobs:
       - run:
           name: Copy deployment artifacts to workspace
           command: |
-            cp build/libs/oauth2-*.jar /tmp/oauth2-$CIRCLE_BRANCH-$CIRCLE_PR_NUMBER.jar
+            cp build/libs/oauth2-*.jar /tmp/oauth2.jar
             cp .circleci/setup-heroku.sh /tmp/setup-heroku.sh
 
       # build artifacts
       - store_artifacts:
-          path: /tmp/oauth2-$CIRCLE_BRANCH-$CIRCLE_PR_NUMBER.jar
+          path: /tmp/oauth2.jar
 
       # store in workspace
       - persist_to_workspace:
                 root: /tmp
                 paths:
-                  - oauth2-$CIRCLE_BRANCH-$CIRCLE_PR_NUMBER.jar
+                  - oauth2.jar
                   - setup-heroku.sh
   
   deploy-heroku:
@@ -78,11 +78,11 @@ jobs:
       - run:
           name: Heroku Deploy
           command: |
-            cp /tmp/oauth2-$CIRCLE_BRANCH-$CIRCLE_PR_NUMBER.jar .
+            cp /tmp/oauth2.jar .
             ls -la
             heroku plugins:install heroku-cli-deploy
             heroku plugins:install heroku-cli-deploy
-            heroku deploy:jar oauth2-$CIRCLE_BRANCH-$CIRCLE_PR_NUMBER.jar --app $HEROKU_APP_NAME      
+            heroku deploy:jar oauth2.jar --app $HEROKU_APP_NAME      
 
 
 
