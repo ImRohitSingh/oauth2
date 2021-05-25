@@ -81,7 +81,17 @@ jobs:
             ls -la
             heroku plugins:install heroku-cli-deploy
             heroku plugins:install heroku-cli-deploy
-            heroku deploy:jar oauth2.jar --app $HEROKU_APP_NAME      
+            heroku deploy:jar oauth2.jar --app $HEROKU_APP_NAME
+        
+        - run:
+          name: Smoke Test
+          command: |
+            # Heroku deploy command will pass even if application crashes. Simple smoke test to make sure app is up.
+            HTTPCODE=`curl -s -o /dev/null -w "%{http_code}" https://$HEROKU_APP_NAME.herokuapp.com`
+            if [ "$HTTPCODE" -ne 200 ];then
+              echo "heroku app not responding, failing deploy"
+              exit 1
+            fi
 
 
 
