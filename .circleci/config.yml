@@ -80,6 +80,7 @@ jobs:
             cp /tmp/oauth2.jar .
             ls -la
             heroku plugins:install heroku-cli-deploy
+            heroku plugins:install heroku-cli-deploy
             heroku deploy:jar oauth2.jar --app $HEROKU_APP_NAME
         
       - run:
