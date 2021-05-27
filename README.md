@@ -139,7 +139,7 @@ request:
 
 ## Validation
 
-#### Context Url
+#### Context Url Path
 
 > https://springoauth2template.herokuapp.com
 
